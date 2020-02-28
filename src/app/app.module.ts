@@ -33,9 +33,9 @@ import { PostCreateComponent } from './post/post-create/post-create.component';
     AppRoutingModule,
     FormsModule,
     NgbModule,
+    HttpClientModule,
     MisdirectivasModule,
-    MisPipesModule,
-    HttpClientModule
+    MisPipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

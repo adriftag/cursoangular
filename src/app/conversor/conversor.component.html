@@ -1,0 +1,17 @@
+<p>conversor works!</p>
+<p appHighlight>Celsius:<input type="number" [(ngModel)]="valorCelsius" (change)="calculateAll()">
+    <button (click)="calculateAll()">Calcular</button>
+</p>
+<p>Kelvin: {{valorKelvin}}</p>
+<p>Fahrenheit: {{valorFahrenheit}}</p>
+<p>Newtons: {{valorNewtons}}</p>
+<p>
+    <ngb-progressbar type="warning" [value]="valorCelsius" max="100">{{valorCelsius}}</ngb-progressbar>
+</p>
+
+<div class="col-3">
+    <img [src] = "imageSrc" width="200px">
+</div>
+
+<p>{{imageSrc | uppercase}}</p>
+<p>{{mensajeParaUsuario | quitaEspacios}}</p>

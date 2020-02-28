@@ -1,0 +1,52 @@
+<div class="container" style="align-content:center;">
+    <form (ngSubmit)="summit()" #dataTableForm="ngForm" [appMustMatch]="['email', 'confEmail']">
+        <div class="form-group">
+            <label for="nif">DNI:</label>
+            <input #nif="ngModel" type="text" placeholder="DNI" class="form-control" size="10" maxlength="9" id="nif"
+                name="nif" pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))"
+                title="Introduzca el dni" [(ngModel)]="user.nif" required>
+            <small [hidden]="nif.valid" id="nifHelp" class="form-text text-muted alert alert-danger">¡Necesario NIF
+                válido!</small>
+
+            <label for="nombre">Nombre:</label>
+            <input #nombre="ngModel" type="text" required class="form-control" [(ngModel)]="user.nombre" id="nombre"
+                name="nombre" placeholder="Nombre" minlength="3" maxlength="255">
+            <small [hidden]="nombre.valid" id="nombreHelp" class="form-text text-muted alert alert-danger">¡Nombre obligatorio!</small>
+            <small *ngIf="nombre.errors && !nombre.errors.required && nombre.errors.minLength" id="nombreHelpMinLength"
+                class="form-text text-muted alert alert-danger">¡El nombre requiere al menos 3 caracteres
+                !</small>
+
+            <label for="apellidos">Apellidos:</label>
+            <input #apellidos="ngModel" type="text" class="form-control" [(ngModel)]="user.apellidos" id="apellidos"
+                name="apellidos" placeholder="Apellidos" minlength="3" maxlength="255">
+            <small [hidden]="apellidos.valid" id="apellidosHelp"
+                class="form-text text-muted alert alert-danger">¡Apellidos entre 3 y 255 caracteres!</small>
+
+            <label for="edad">Edad:</label>
+            <input #edad="ngModel" type="number" class="form-control" [(ngModel)]="user.edad" id="edad" name="edad"
+                placeholder="Edad" min="1" max="99" [appMinValue]="16">
+            <small [hidden]="edad.invalid && !edad.errors.required && edad.errors.minValue" id="edadHelp"
+                class="form-text text-muted alert alert-danger">¡Edad entre 16 y 99!</small>
+
+            <label for="email">Email:</label>
+            <input #email="ngModel" type="email" class="form-control" [(ngModel)]="user.email" id="email" name="email"
+                placeholder="Email" email>
+            <small *ngIf="email.errors && email.errors.email" id="emailHelp"
+                class="form-text text-muted alert alert-danger">¡Introduzca un email válido!</small>
+
+            <label for="confEmail">Confirmar Email:</label>
+            <input #confEmail="ngModel" type="email" class="form-control" [(ngModel)]="user.confEmail" id="confEmail"
+                name="confEmail" placeholder="Email" email>
+            <small *ngIf="confEmail.errors && confEmail.errors.email" id="confEmailHelp"
+                class="form-text text-muted alert alert-danger">¡Introduzca un email válido!</small>
+            <small *ngIf="confEmail.errors && confEmail.errors.mustMatch" id="confEmailHelp"
+                class="form-text text-muted alert alert-danger">¡Introduzca el mismo email!</small>
+        </div>
+        <button [disabled]="dataTableForm.invalid" type="submit" class="btwn btn-primary">Guardar</button>
+        <button (clic)="reset()" class="btwn btn-danger">Reset</button>
+    </form>
+    <br>
+    <div class="row" *ngFor="let user of users; let index = index">
+        <p>{{user.nombre}} {{user.apellidos}}</p>
+    </div>
+</div>

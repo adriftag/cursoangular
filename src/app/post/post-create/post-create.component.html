@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center">
+    <form (ngSubmit)="save()" #postForm="ngForm">
+        <div class="row form-group">
+            <div class="col-6">
+                <label for="title">Titulo</label>
+                <input type="text" required [(ngModel)]="post.title" class="form-control" id="title" name="title"
+                    placeHolder="Titulo">
+            </div>
+            <div class="col-6">
+                <label for="body">Cuerpo</label>
+                <input type="text" required [(ngModel)]="post.body" class="form-control" id="body" name="body"
+                    placeHolder="Cuerpo">
+            </div>
+            <div class="col-6">
+                <label for="userId">ID usuario</label>
+                <input type="text" required [(ngModel)]="post.userId" class="form-control" id="userId" name="userId"
+                    placeHolder="User ID">
+            </div>
+        </div>
+        <button [disabled]="postForm.invalid" type="submit" class="btwn btn-primary">Guardar</button>
+    </form>
+</div>

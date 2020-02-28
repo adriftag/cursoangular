@@ -1,20 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { MiniGameComponent } from './mini-game/mini-game.component';
 import { ConversorComponent } from './conversor/conversor.component';
-import { MisdirectivasModule } from './misdirectivas/misdirectivas.module';
-import { MisPipesModule } from './mis-pipes/mis-pipes.module';
 import { DataTableComponent } from './data-table/data-table.component';
-import { HttpClientModule } from '@angular/common/http';
-import { PostComponent } from './post/post.component';
-import { PostCreateComponent } from './post/post-create/post-create.component';
+import { SharedModule } from './shared/shared.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { PostUpdateComponent } from './post/post-update.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,19 +18,13 @@ import { PostCreateComponent } from './post/post-create/post-create.component';
     MiniGameComponent,
     ConversorComponent,
     DataTableComponent,
-    PostComponent,
-    PostCreateComponent
+    PostUpdateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule,
-    AppRoutingModule,
-    FormsModule,
-    NgbModule,
-    HttpClientModule,
-    MisdirectivasModule,
-    MisPipesModule
+    SharedModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

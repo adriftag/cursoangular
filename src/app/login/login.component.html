@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center">
+    <form (ngSubmit)="login()" #postForm="ngForm">
+        <div class="row form-group">
+            <div class="col-6">
+                <label for="username">username</label>
+                <input type="text" required [(ngModel)]="username" class="form-control" id="username" name="username"
+                    placeHolder="username">
+            </div>
+            <div class="col-6">
+                <label for="passwd">passwd</label>
+                <input type="text" required [(ngModel)]="passwd" class="form-control" id="passwd" name="passwd"
+                    placeHolder="passwd">
+            </div>
+        </div>
+        <button [disabled]="postForm.invalid" type="submit" class="btwn btn-primary">Login</button>
+    </form>
+</div>

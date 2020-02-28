@@ -28,6 +28,12 @@ export class PostService {
     //aqui se le pasa como segundo parametro el post que le enviamos
   }
 
+  updatePost(post: Post): Observable<HttpResponse<Post>> {
+    if (!post.id) return throwError('Post sin id');
+    return this.http.put<Post>(`${this.resourceUrl}/${post.id}`, post, { observe: 'response' }).pipe(catchError(this.handleError));
+    //aqui se le pasa como segundo parametro el post que le enviamos
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) { //esto significa que el error esta en el front.
       console.error('Error en el back');

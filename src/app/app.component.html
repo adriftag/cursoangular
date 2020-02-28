@@ -9,6 +9,8 @@
   <a routerLink="/data-table" routerLinkActive="active">Tabla datos</a>
   <br>
   <a routerLink="/posts" routerLinkActive="active">Tabla Posts</a>
+  <br>
+  <button *ngIf="isLoggedIn" (click)="logout()" class="btwn btn-primary">Logout</button>
 </nav>
 
 <router-outlet></router-outlet>

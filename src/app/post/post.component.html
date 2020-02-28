@@ -15,7 +15,7 @@
             </th>
         </thead>
         <tbody>
-            <tr *ngFor="let post of posts; let index = index">
+            <tr *ngFor="let post of posts; let index = index" [routerLink]="['/posts/update', post.id]">
                 <td>
                     <span>{{post.id}}</span>
                 </td>
@@ -44,7 +44,7 @@
     </div>
 </div>
 <div class="d-flex justify-content-center" *ngIf="!isLoading">
-    <button routerLink="/create/post" class="btwn btn-primary">Crear nuevo</button>
+    <button routerLink="/posts/create" class="btwn btn-primary">Crear nuevo</button>
 </div>
 <div class="d-flex justify-content-center" *ngIf="!isLoading">
     <input type="number" min="0" [(ngModel)]="idToSearch">
